@@ -1,66 +1,159 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based Task Management System that allows users to manage tasks with various roles and permissions. The system uses roles like Admin, Manager, and User, each with different permissions. It supports creating, assigning, updating, and deleting tasks, as well as handling soft deletes, task priorities, and date formatting. Tasks can be filtered by priority and status, and users can only update the status of tasks assigned to them.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Role-based permissions:
+   - Admins have full control (create, update, assign, delete tasks).
+   - Managers can assign tasks and manage their own.
+   - Users can update the status of tasks assigned to them.
+- Task Assignment: Admins and Managers can assign tasks to specific users.
+- Task Prioritization: Tasks have a priority field with three levels: `low`, `medium`, and `high`.
+- Date Handling: Tasks have due dates (`due_date`), creation dates (`created_on`), and update dates (`updated_on`) formatted as `d-m-Y H:i`.
+- Soft Deletes: Tasks and users can be recovered after deletion.
+- Query Filters: Filter tasks by `priority` and `status` using query scopes.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technologies Used
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.x
+- Laravel 10.x
+- MySQL (or other relational database)
+- Spatie Laravel-Permission for role and permission management
+- Postman (for API testing)
+- Carbon for date formatting
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Clone the Repository:**
+```
+https://github.com/amalSheikhdaher/Task_Management_System.git
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. **Install Dependencies:**
+```
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. **Set up the environment:**
 
-## Laravel Sponsors
+   Copy the `.env.example` file and configure the database settings and other environment variables.
+```
+cp .env.example .env
+php artisan key:generate
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Set up the database:**
 
-### Premium Partners
+   Ensure your database configuration is correct in the `.env` file, then run the migrations:
+```
+ php artisan migrate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+   If you are using Spatie Roles and Permissions, run the following command to cache the permissions:
+   
+```
+php artisan permission:cache-reset
+```
 
-## Contributing
+5. **Seed the database:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   Create admin, manager, and user roles, and assign them to users by running the seeders.
 
-## Code of Conduct
+```
+php artisan db:seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Serve the application
 
-## Security Vulnerabilities
+```
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Your application will be accessible at `http://localhost:8000`.
+
+
+## API Endpoints
+
+### Authentication
+
+
+- POST `/api/login`: Authenticate and get a token.
+
+### Tasks
+- GET `/api/tasks`: List all tasks (Admins & Managers).
+- POST `/api/tasks`: Create a new task (Admin & Manager).
+- PUT `/api/tasks/{id}`: Update a task (Admin & Manager).
+- DELETE `/api/tasks/{id}`: Soft delete a task (Admin).
+- PUT `/api/tasks/{id}/status`: Update task status (Assigned user only).
+
+### Request and Response Format
+
+### Task Example
+
+### POST `/api/tasks`
+
+```
+{
+  "title": "Write a technical report",
+  "description": "A report on AI advancements.",
+  "priority": "high",
+  "due_date": "2024-10-10 09:00",
+  "assigned_to": 3
+}
+```
+
+### Response
+
+```
+{
+  "status": "success",
+  "task": {
+    "task_id": 1,
+    "title": "Write a technical report",
+    "description": "A report on AI advancements.",
+    "priority": "high",
+    "due_date": "10-10-2024 09:00",
+    "status": "pending",
+    "assigned_to": 3,
+    "created_on": "09-09-2024 13:16",
+    "updated_on": "09-09-2024 13:16"
+  }
+}
+```
+
+## Testing
+
+To test the API, use Postman or any API client. Make sure you include the required authentication tokens in the request headers where necessary.
+
+### Import Postman Collection:
+
+   - Import the collection (https://www.postman.com/cloudy-eclipse-506985/workspace/task-management-system/collection/34376611-715cf1a6-7542-4bc7-9b2e-498012e1510a?action=share&creator=34376611) into Postman.
+
+### Example Postman Test for Task Assignment
+
+POST `/api/tasks/assign`
+
+```
+{
+  "task_id": 1,
+  "assigned_to": 2
+}
+```
+Make sure the user has permission to assign tasks.
+
+## Customization
+
+- Date Formats: Customize the date formats by modifying the date accessors and mutators in the `Task` model.
+
+- Role Management: The Spatie roles and permissions package can be customized by editing the permissions in the `RoleSeeder`.
+
+## Future Enhancements
+
+- Add email notifications for task assignments.
+- Implement full-text search for tasks.
+- Add support for file attachments to tasks.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](LICENSE).
