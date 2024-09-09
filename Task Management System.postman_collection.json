@@ -680,6 +680,160 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"All tasks fetched successfully\",\n    \"data\": [\n        {\n            \"task_id\": 1,\n            \"title\": \"technical report\",\n            \"description\": \"Research and analyze recent breakthroughs in artificial intelligence, focusing on areas such as machine learning, natural language processing, and computer vision. Prepare a detailed report outlining key findings, trends, and potential applications.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-11-2024 20:12\",\n            \"status\": \"pending\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 14:51\",\n            \"updated_on\": \"09-09-2024 15:19\"\n        },\n        {\n            \"task_id\": 3,\n            \"title\": \"market research\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-11-2024 20:12\",\n            \"status\": \"pending\",\n            \"assigned_to\": null,\n            \"created_on\": \"09-09-2024 15:12\",\n            \"updated_on\": \"09-09-2024 16:49\"\n        },\n        {\n            \"task_id\": 4,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"completed\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 15:37\",\n            \"updated_on\": \"09-09-2024 15:39\"\n        },\n        {\n            \"task_id\": 5,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"pending\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 16:42\",\n            \"updated_on\": \"09-09-2024 16:42\"\n        },\n        {\n            \"task_id\": 6,\n            \"title\": \"market research\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"high\",\n            \"due_date\": \"10-11-2024 20:12\",\n            \"status\": \"pending\",\n            \"assigned_to\": 5,\n            \"created_on\": \"09-09-2024 16:43\",\n            \"updated_on\": \"09-09-2024 16:57\"\n        },\n        {\n            \"task_id\": 7,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"pending\",\n            \"assigned_to\": null,\n            \"created_on\": \"09-09-2024 16:54\",\n            \"updated_on\": \"09-09-2024 16:54\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Filtering using priority",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks?priority=low",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									],
+									"query": [
+										{
+											"key": "priority",
+											"value": "low"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 18:02:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"All tasks fetched successfully\",\n    \"data\": [\n        {\n            \"task_id\": 1,\n            \"title\": \"technical report\",\n            \"description\": \"Research and analyze recent breakthroughs in artificial intelligence, focusing on areas such as machine learning, natural language processing, and computer vision. Prepare a detailed report outlining key findings, trends, and potential applications.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-11-2024 20:12\",\n            \"status\": \"pending\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 14:51\",\n            \"updated_on\": \"09-09-2024 15:19\"\n        },\n        {\n            \"task_id\": 3,\n            \"title\": \"market research\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-11-2024 20:12\",\n            \"status\": \"pending\",\n            \"assigned_to\": 5,\n            \"created_on\": \"09-09-2024 15:12\",\n            \"updated_on\": \"09-09-2024 17:08\"\n        },\n        {\n            \"task_id\": 4,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"completed\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 15:37\",\n            \"updated_on\": \"09-09-2024 15:39\"\n        },\n        {\n            \"task_id\": 5,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"completed\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 16:42\",\n            \"updated_on\": \"09-09-2024 17:06\"\n        },\n        {\n            \"task_id\": 7,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"pending\",\n            \"assigned_to\": 5,\n            \"created_on\": \"09-09-2024 16:54\",\n            \"updated_on\": \"09-09-2024 17:03\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Filtering using status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks?status=completed",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "completed"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 18:04:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"All tasks fetched successfully\",\n    \"data\": [\n        {\n            \"task_id\": 4,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"completed\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 15:37\",\n            \"updated_on\": \"09-09-2024 15:39\"\n        },\n        {\n            \"task_id\": 5,\n            \"title\": \"Write a technical report on the latest advancements in AI\",\n            \"description\": \"Design and execute a survey to gather feedback from customers about their experience with our products and services. Analyze the survey results to identify areas for improvement and inform future product development.\",\n            \"priority\": \"low\",\n            \"due_date\": \"10-10-2024 09:00\",\n            \"status\": \"completed\",\n            \"assigned_to\": 3,\n            \"created_on\": \"09-09-2024 16:42\",\n            \"updated_on\": \"09-09-2024 17:06\"\n        }\n    ]\n}"
 						}
 					]
 				},
